@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Care System</title>
+    <link rel="stylesheet" href="style.css">
+    <!--boxicon cdn-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- link Swiper's Css -->
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  list-style: none;
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat' ,sans-serif;
+  line-height: 1.5;
+  color: rgba(12, 3, 27, 0.7);
+  background: rgba(20, 25, 27, 0.1);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.container {
+  width: 82%;
+  margin: 0 auto;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5 {
+  line-height: 1.2;
+}
+
+section {
+  margin-top: 6rem;
+}
+
+section > h2 {
+  text-align: center;
+}
+
+section > p {
+  text-align: center;
+  width: 42%;
+  margin: 0.6rem auto 2.5rem;
+}
+
+.btn {
+  display: inline-block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.75rem 1rem;
+  border-radius: 0.4rem;
+  background: #a8bdb2;
+  color: #ffffff;
+  cursor: pointer;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
+}
+
+.btn:hover {
+  background: #1e0307;
+  -webkit-box-shadow: 0 1rem 1.6rem rgba(12, 3, 27, 0.15);
+          box-shadow: 0 1rem 1.6rem rgba(12, 3, 27, 0.15);
+}
+
+.btn-primary {
+  display: inline-block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.75rem 1rem;
+  border-radius: 0.4rem;
+  background: #4d7f61;
+  color: #ffffff;
+  cursor: pointer;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
+}
+
+.btn-primary:hover {
+  background: #54a17c;
+  -webkit-box-shadow: 0 1rem 1.6rem rgba(12, 3, 27, 0.15);
+          box-shadow: 0 1rem 1.6rem rgba(12, 3, 27, 0.15);
+}
+
+/****************Media queries(medium device)*****************/
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 90%;
+  }
+  section > p {
+    width: 55%;
+  }
+}
+
+/****************Media queries(small device)*****************/
+@media screen and (max-width: 600px) {
+  section > p {
+    width: 90%;
+  }
+}
+
+nav {
+  width: 100vw;
+  height: 5rem;
+  position: fixed;
+  z-index: 10;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #c9cdc8, #34553f);
+  color: #d1d2b5;
+  -webkit-box-shadow: 0 1rem 1rem rgba(12, 3, 27, 0.1);
+          box-shadow: 0 1rem 1rem rgba(12, 3, 27, 0.1);
+}
+
+nav h1, nav h2, nav h3, nav h4, nav h5 {
+  color: #ffffff;
+}
+
+nav.window-scroll {
+  background: #ffffff;
+}
+
+nav.window-scroll .container button {
+  color: #0c031b;
+}
+
+nav.window-scroll .container a {
+  color: #0c031b;
+}
+
+nav.window-scroll .container a > h3 {
+  color: #0c031b;
+}
+
+nav.window-scroll .container a.btn {
+  color: #ffffff;
+}
+
+nav .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav .container ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 3rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav .container button {
+  display: none;
+}
+
+nav .container a {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+nav .container .nav-logo h3 {
+  color: #ffffff;
+}
+
+/****************Media queries(medium device)*****************/
+@media screen and (max-width: 1024px) {
+  nav .container button {
+    display: inline-block;
+    background: transparent;
+    color: #ffffff;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  nav .container button#close-nav-btn {
+    display: none;
+  }
+  nav .container ul {
+    position: fixed;
+    right: 5%;
+    top: 5rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    gap: 0;
+    display: none;
+    -webkit-perspective: 300px;
+            perspective: 300px;
+  }
+  nav .container ul li {
+    width: 100%;
+    opacity: 0;
+    -webkit-animation: flipNavItem 300ms ease forwards;
+            animation: flipNavItem 300ms ease forwards;
+    -webkit-transform-origin: top;
+            transform-origin: top;
+  }
+  nav .container ul li:nth-child(2) {
+    -webkit-animation-delay: 200ms;
+            animation-delay: 200ms;
+  }
+  nav .container ul li:nth-child(3) {
+    -webkit-animation-delay: 400ms;
+            animation-delay: 400ms;
+  }
+  nav .container ul li:nth-child(4) {
+    -webkit-animation-delay: 600ms;
+            animation-delay: 600ms;
+  }
+  nav .container ul li:nth-child(5) {
+    -webkit-animation-delay: 800ms;
+            animation-delay: 800ms;
+  }
+  @-webkit-keyframes flipNavItem {
+    0% {
+      -webkit-transform: rotateX(90deg);
+              transform: rotateX(90deg);
+    }
+    100% {
+      -webkit-transform: rotateX(0deg);
+              transform: rotateX(0deg);
+      opacity: 1;
+    }
+  }
+  @keyframes flipNavItem {
+    0% {
+      -webkit-transform: rotateX(90deg);
+              transform: rotateX(90deg);
+    }
+    100% {
+      -webkit-transform: rotateX(0deg);
+              transform: rotateX(0deg);
+      opacity: 1;
+    }
+  }
+  nav .container ul li a {
+    color: #ffffff;
+    height: 100%;
+    display: block;
+    padding: 1.5rem 2rem;
+    border-radius: 0;
+    background: -webkit-gradient(linear, left top, left bottom, from(#79ad8c), to(#92bcae));
+    background: linear-gradient(#79ab90, #599b85);
+  }
+  nav .container ul li a.btn {
+    background: #668d60;
+  }
+}
+
+header {
+  background: linear-gradient(135deg, #507d64, #4cc9f0);
+  color: #ffffff;
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+header h1, header h2, header h3, header h4, header h5 {
+  color: #ffffff;
+}
+
+header .container {
+  margin-top: 3rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 46% 46%;
+      grid-template-columns: 46% 46%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header .header-content h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  letter-spacing: -3px;
+  font-weight: 300;
+}
+
+header .header-content p {
+  margin: 1rem 0 2rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+}
+
+/****************Media queries(medium device)*****************/
+@media screen and (max-width: 1024px) {
+  header {
+    height: 80vh;
+  }
+  header .container {
+    gap: 1rem;
+  }
+  header .container .header-content h1 {
+    font-size: 2.2rem;
+  }
+  header .container .header-image img {
+    width: 100%;
+  }
+}
+
+/****************Media queries(small device)*****************/
+@media screen and (max-width: 600px) {
+  header {
+    height: 100vh;
+    padding-top: 3rem;
+  }
+  header .container {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    text-align: center;
+  }
+  header .container .header-image {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  header .container .header-image img {
+    width: 50%;
+  }
+}
+
+#services .container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+#services .container article {
+  background: linear-gradient(135deg, #84aca6, #517d8a);
+  color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1.5rem;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
+}
+
+#services .container article h1, #services .container article h2, #services .container article h3, #services .container article h4, #services .container article h5 {
+  color: #ffffff;
+}
+
+#services .container article:hover {
+  margin-top: -0.5rem;
+}
+
+#services .container article i {
+  font-size: 1.7rem;
+}
+
+#services .container article div h4 {
+  margin-bottom: 1rem;
+}
+
+/****************Media queries(medium device)*****************/
+@media screen and (max-width: 1024px) {
+  #services .container {
+    gap: 1rem;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+  #services .container article {
+    padding: 1.2rem;
+    gap: 0.8rem;
+  }
+  #services .container article:hover {
+    margin: 0;
+  }
+}
+
+/****************Media queries(small device)*****************/
+@media screen and (max-width: 600px) {
+  #services .container {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  #services .container article div h4 {
+    margin-bottom: 0.8rem;
+  }
+}
+
+#specialists .container {
+  width: 68%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+#specialists .container article {
+  background: #ffffff;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0 1.5rem 1.5rem rgba(12, 3, 27, 0.1);
+          box-shadow: 0 1.5rem 1.5rem rgba(12, 3, 27, 0.1);
+  position: relative;
+  -webkit-transition: all 700ms ease;
+  transition: all 700ms ease;
+}
+
+#specialists .container article:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+#specialists .container article:hover .specialists-image::before {
+  left: 0;
+  border-radius: 1rem;
+}
+
+#specialists .container article:hover .specialists-socials, #specialists .container article:hover .spealists-whatsapp {
+  opacity: 1;
+  visibility: visible;
+}
+
+#specialists .container article .specialists-image {
+  height: 20rem;
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+#specialists .container article .specialists-image::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  background: linear-gradient(135deg, rgba(88, 136, 125, 0.8), rgba(113, 157, 171, 0.8));
+  border-radius: 50%;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+#specialists .container article .specialists-details {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+#specialists .container article .specialists-socials {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 1s 400ms ease;
+  transition: all 1s 400ms ease;
+}
+
+#specialists .container article .specialists-socials a {
+  background: #ffffff;
+  color: #588586;
+  padding: 0.4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8rem;
+  border-radius: 50%;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
+}
+
+#specialists .container article .specialists-socials a:hover {
+  background: #73a4a3;
+  color: #ffffff;
+}
+
+#specialists .container article .spealists-whatsapp {
+  background: #95ba9d;
+  color: #ffffff;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 30%;
+  padding: 1rem;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 1s 400ms ease;
+  transition: all 1s 400ms ease;
+  font-size: 1.6rem;
+}
+
+/****************Media queries(medium device)*****************/
+@media screen and (max-width: 1024px) {
+  #specialists .container {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+}
+
+/****************Media queries(small device)*****************/
+@media screen and (max-width: 600px) {
+  #specialists .container {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
+.swiper {
+  width: 82%;
+}
+
+.swiper .swiper-wrapper {
+  margin-bottom: 4rem;
+}
+
+.swiper .swiper-wrapper .swiper-slide {
+  background: linear-gradient(135deg, #749fa5, #3b5c66);
+  color: #ffffff;
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  cursor: default;
+  font-size: 0.9rem;
+}
+
+.swiper .swiper-wrapper .swiper-slide h1, .swiper .swiper-wrapper .swiper-slide h2, .swiper .swiper-wrapper .swiper-slide h3, .swiper .swiper-wrapper .swiper-slide h4, .swiper .swiper-wrapper .swiper-slide h5 {
+  color: #ffffff;
+}
+
+.swiper .swiper-wrapper .swiper-slide p {
+  margin-bottom: 1.5rem;
+}
+
+.swiper .swiper-wrapper .swiper-slide .patient {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+}
+
+.swiper .swiper-wrapper .swiper-slide .patient .avatar {
+  width: 2.5rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.swiper .swiper-pagination-bullet {
+  background: #79b49c;
+}
+
+/****************Media queries(small device)*****************/
+@media screen and (max-width: 600px) {
+  .swiper .swiper-wrapper article {
+    padding: 1.5rem;
+  }
+}
+
+#apointment .container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 47% 47%;
+      grid-template-columns: 47% 47%;
+  gap: 6%;
+}
+
+#apointment .container .info p {
+  margin: 0.5rem 0 2rem;
+}
+
+#apointment .container .info article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+#apointment .container .info article small {
+  margin-top: 0.4rem;
+  display: block;
+}
+
+#apointment .container .info article .info-icon {
+  background: #6e9787;
+  color: #ffffff;
+  padding: 0.8rem;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.2rem;
+}
+
+#apointment .container form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1.4rem;
+}
+
+#apointment .container form .form-group label {
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+  display: inline-block;
+  font-weight: 600;
+}
+
+#apointment .container form .form-group input, #apointment .container form .form-group textarea, #apointment .container form .form-group select {
+  background: #ffffff;
+  padding: 0.85rem 1rem;
+  display: block;
+  width: 100%;
+  border-radius: 0.4rem;
+  resize: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+/****************Media queries(small device)*****************/
+@media screen and (max-width: 600px) {
+  #apointment .container {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  #apointment .container .info h2, #apointment .container .info p {
+    text-align: center;
+  }
+}
+
+footer {
+  background: #0c031b;
+  color: rgba(255, 255, 255, 0.7);
+  padding-top: 6rem;
+  margin-top: 6rem;
+}
+
+footer .container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  gap: 5rem;
+  font-size: 0.85rem;
+}
+
+footer .container a {
+  color: rgba(255, 255, 255, 0.7);
+  -webkit-transition: all 400ms  ease;
+  transition: all 400ms  ease;
+}
+
+footer .container a:hover {
+  color: #ffffff;
+}
+
+footer .container article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+
+footer .container article > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.6rem;
+}
+
+footer .container article > h3 {
+  color: #ffffff;
+}
+
+footer .container article .footer-socials {
+  gap: 1rem;
+  font-size: 1.4rem;
+}
+
+footer .copyright {
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.9rem;
+}
+
+/****************Media queries(medium device)*****************/
+@media screen and (max-width: 1024px) {
+  footer .container {
+    gap: 2.5rem;
+  }
+}
+
+/****************Media queries(small device)*****************/
+@media screen and (max-width: 600px) {
+  footer .container {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    text-align: center;
+  }
+  footer .btn-primary, footer .footer-socials {
+    margin: 0 auto;
+  }
+  footer article > div {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+/*# sourceMappingURL=style.css.map */
+
+    </style>
+</head>
+<body>
+ <nav>
+    <div class="container">
+        <a href="h3" class="nav-logo">
+            <h3>
+                Health Care System
+            </h3>
+        </a>
+        <ul id="nav-items">
+            <li><a href="">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#specialists">Doctors</a></li>
+            <li><a href="#swiper">Treatments</a></li>
+            <li><a href="#apointment" class="btn">Make Appointment</a></li>
+        </ul>
+        <button id="open-nav-btn"><i class='bx bx-menu'></i></button>
+        <button id="close-nav-btn"><i class='bx bx-x' ></i></button>
+    </div>
+ </nav>
+
+ <!--===================end of nav=========================-->
+
+
+ <header>
+    <div class="container">
+        <div class="header-content">
+            <h1>Health Care For Everyone</h1>
+            <p>
+                Welcome to our health care system's online platform! Your health and well-being are our top priorities. We are dedicated to providing you with the highest quality medical care and personalized attention
+            </p>
+            <a href="#appointment" class="btn">Make Appointment </a>
+        </div>
+        <div class="header-image">
+            <img src="C:\Users\Yaren\Downloads\imagee.png" alt="header image">
+        </div>
+    </div>
+ </header>
+
+  <!--===================end of header=========================-->
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <p>
+        
+    </p>
+    <div class="container">
+        <article>
+            <i class='bx bxs-book-content'></i>
+            <div>
+                <h4>Online Booking</h4>
+                <small>
+    
+                    Book appointments seamlessly online. Choose your healthcare provider and schedule visits at your convenience. Take control of your healthcare journey with ease.
+                </small>
+            </div>
+        </article>
+        <article>
+            <i class='bx bx-trophy'></i>
+            <div>
+                <h4>Qualified Doctors</h4>
+                <small>
+                    Access experienced and certified healthcare professionals. Trust in the expertise of our qualified doctors. Receive top-notch medical care tailored to your needs.
+                </small>
+            </div>
+        </article>
+        <article>
+            <i class='bx bx-donate-heart'></i>
+            <div>
+                <h4>Private Support</h4>
+                <small>
+                    Benefit from personalized assistance and confidential care. Experience exclusive support tailored to your individual needs. Access private consultations and dedicated support services.
+                </small>
+            </div>
+        </article>
+        <article>
+            <i class='bx bx-first-aid'></i>
+            <div>
+                <h4>Need Emergency</h4>
+                <small>
+                    For urgent medical attention, rely on our emergency services. We're here for you when you need immediate medical care.
+                        Trust us for quick effective crisis.
+                    
+                </small>
+            </div>
+        </article>
+        <article>
+            <i class='bx bxl-meta'></i>
+            <div>
+                <h4>Well Cared</h4>
+                <small>
+                    Experience the utmost care and attention from our compassionate team of professionals. Your health and comfort are at the heart of everything we do.
+                </small>
+            </div>
+        </article>
+        <article>
+            <i class='bx bxs-book-content'></i>
+            <div>
+                <h4>24 Hours Services</h4>
+                <small>
+                    Receive round-the-clock care and support from our dedicated team, ensuring your health needs are met anytime, day or night.
+                </small>
+            </div>
+        </article>
+    </div>
+  </section>
+
+    <!--===================end of header=========================-->      
+    <section id="specialists">
+        <h2>Meet Our Expert Health Care Professionals</h2>
+
+        <div class="container">
+            <article>
+                <div class="specialists-image">
+                    <img src="C:\Users\Yaren\Downloads\Chris-Emily-finals-0009.jpg" alt="specialists">
+                </div>
+                <div class="specialists-details">
+                    <h4>Dr. Emily Johnson</h4>
+                    <small>Neurology  Specialists</small>
+                </div>
+                <div class="specialists-socials">
+                    <a href="#"><i class="bx bxl-linkedin"></i></a>
+                    <a href="#"><i class="bx bxl-twitter"></i></a>
+                    <a href="#"><i class="bx bxl-facebook"></i></a>
+                    <a href="#"><i class="bx bxl-instagram"></i></a>
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=+905555555" class="spealists-whatsapp" target="_blank"><i class="bx bxl-whatsapp"></i></a>
+            </article>
+            
+            <article>
+                <div class="specialists-image">
+                    <img src= "C:\Users\Yaren\Downloads\lee-michael-bio-261x347.jpg"alt="specialists">
+                </div>
+                <div class="specialists-details">
+                    <h4>Prof.Michael Lee</h4>
+                    <small>Orthopedics Specialists</small>
+                </div>
+                <div class="specialists-socials">
+                    <a href="#"><i class="bx bxl-linkedin"></i></a>
+                    <a href="#"><i class="bx bxl-twitter"></i></a>
+                    <a href="#"><i class="bx bxl-facebook"></i></a>
+                    <a href="#"><i class="bx bxl-instagram"></i></a>
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=+905555555" class="spealists-whatsapp" target="_blank"><i class="bx bxl-whatsapp"></i></a>
+            </article>
+
+            <article>
+                <div class="specialists-image">
+                    <img src= "C:\Users\Yaren\Downloads\Thais-Aliabadi-Portrait.jpg"alt="specialists">
+                </div>
+                <div class="specialists-details">
+                    <h4>Dr. Sophia Rodriguez</h4>
+                    <small>Cardiology Specialists</small>
+                </div>
+                <div class="specialists-socials">
+                    <a href="#"><i class="bx bxl-linkedin"></i></a>
+                    <a href="#"><i class="bx bxl-twitter"></i></a>
+                    <a href="#"><i class="bx bxl-facebook"></i></a>
+                   <a href="#"><i class="bx bxl-instagram"></i></a>
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=+905555555" class="spealists-whatsapp" target="_blank"><i class="bx bxl-whatsapp"></i></a>
+            </article>
+
+            <article>
+                <div class="specialists-image">
+                    <img src= "C:\Users\Yaren\Downloads\1784x2252.jpg" alt="specialists">
+                </div>
+                <div class="specialists-details">
+                    <h4>Prof. David Chen</h4>
+                    <small> Oncology Specialists</small>
+                </div>
+                <div class="specialists-socials">
+                    <a href="#"><i class="bx bxl-linkedin"></i></a>
+                    <a href="#"><i class="bx bxl-twitter"></i></a>
+                    <a href="#"><i class="bx bxl-facebook"></i></a>
+                    <a href="#"><i class="bx bxl-instagram"></i></a>
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=+905555555" class="spealists-whatsapp" target="_blank"><i class="bx bxl-whatsapp"></i></a>
+            </article>
+            <article>
+                <div class="specialists-image">
+                    <img src="C:\Users\Yaren\Downloads\photo.jpg"  alt="specialists">
+                </div>
+                <div class="specialists-details">
+                    <h4>Dr. Sarah Williams</h4>
+                    <small>Dermatology Specialists</small>
+                </div>
+                <div class="specialists-socials">
+                    <a href="#"><i class="bx bxl-linkedin"></i></a>
+                    <a href="#"><i class="bx bxl-twitter"></i></a>
+                    <a href="#"><i class="bx bxl-facebook"></i></a>
+                    <a href="#"><i class="bx bxl-instagram"></i></a>
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=+905555555" class="spealists-whatsapp" target="_blank"><i class="bx bxl-whatsapp"></i></a>
+            </article>
+            <article>
+                <div class="specialists-image">
+                    <img src= "C:\Users\Yaren\Downloads\Smith.png" alt="specialists">
+                </div>
+                <div class="specialists-details">
+                    <h4>Prof. James Smith</h4>
+                    <small> Pediatrics Professor</small>
+                </div>
+                <div class="specialists-socials">
+                    <a href="#"><i class="bx bxl-linkedin"></i></a>
+                    <a href="#"><i class="bx bxl-twitter"></i></a>
+                    <a href="#"><i class="bx bxl-facebook"></i></a>
+                    <a href="#"><i class="bx bxl-instagram"></i></a>
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=+905555555" class="spealists-whatsapp" target="_blank"><i class="bx bxl-whatsapp"></i></a>
+            </article>
+            <article>
+                <div class="specialists-image">
+                    <img src="C:\Users\Yaren\Downloads\ad4a827a41c4121ed967a97870f8871f.jpeg"  alt="specialists">
+                </div>
+                <div class="specialists-details">
+                    <h4>Dr. Emma Taylor</h4>
+                    <small>Urology Specialists</small>
+                </div>
+                <div class="specialists-socials">
+                    <a href="#"><i class="bx bxl-linkedin"></i></a>
+                    <a href="#"><i class="bx bxl-twitter"></i></a>
+                    <a href="#"><i class="bx bxl-facebook"></i></a>
+                    <a href="#"><i class="bx bxl-instagram"></i></a>
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=+905555555" class="spealists-whatsapp" target="_blank"><i class="bx bxl-whatsapp"></i></a>
+            </article>
+            <article>
+                <div class="specialists-image">
+                    <img src= "C:\Users\Yaren\Downloads\equipo-2.jpg" alt="specialists">
+                </div>
+                <div class="specialists-details">
+                    <h4>Prof. Anna Garcia</h4>
+                    <small> Psychiatry Professor </small>
+                </div>
+                <div class="specialists-socials">
+                    <a href="#"><i class="bx bxl-linkedin"></i></a>
+                    <a href="#"><i class="bx bxl-twitter"></i></a>
+                    <a href="#"><i class="bx bxl-facebook"></i></a>
+                    <a href="#"><i class="bx bxl-instagram"></i></a>
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=+905555555" class="spealists-whatsapp" target="_blank"><i class="bx bxl-whatsapp"></i></a>
+            </article>
+            <article>
+                <div class="specialists-image">
+                    <img src="C:\Users\Yaren\Downloads\daniel-brown.jpg"  alt="specialists">
+                </div>
+                <div class="specialists-details">
+                    <h4>Dr. Daniel Brown</h4>
+                    <small> Internal Medicine Specialist</small>
+                </div>
+                <div class="specialists-socials">
+                    <a href="#"><i class="bx bxl-linkedin"></i></a>
+                    <a href="#"><i class="bx bxl-twitter"></i></a>
+                    <a href="#"><i class="bx bxl-facebook"></i></a>
+                    <a href="#"><i class="bx bxl-instagram"></i></a>
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=+905555555" class="spealists-whatsapp" target="_blank"><i class="bx bxl-whatsapp"></i></a>
+            </article>
+            <article>
+                <div class="specialists-image">
+                    <img src="C:\Users\Yaren\Downloads\clinicadoctorgalvez_annagarcia_a01.webp"  alt="specialists">
+                </div>
+                <div class="specialists-details">
+                    <h4>Prof. Olivia Martinez </h4>
+                    <small>Radiology Professor </small>
+                </div>
+                <div class="specialists-socials">
+                    <a href="#"><i class="bx bxl-linkedin"></i></a>
+                    <a href="#"><i class="bx bxl-twitter"></i></a>
+                    <a href="#"><i class="bx bxl-facebook"></i></a>
+                    <a href="#"><i class="bx bxl-instagram"></i></a>
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=+905555555" class="spealists-whatsapp" target="_blank"><i class="bx bxl-whatsapp"></i></a>
+            </article>
+
+        </div>
+    </section>
+
+    <!--===================end of specialists=========================-->
+    <section id="treatments" class="swiper mySwiper">
+        <h2>Treatments</h2>
+        <div class="swiper-wrapper">
+            <div class="swiper-slide surgery treatment" data-info="Surgery - Surgical treatments involve operative procedures to investigate or treat a disorder.">Surgery</div>
+            <div class="swiper-slide radiology treatment" data-info="Radiology - Radiology involves the use of medical imaging to diagnose and treat diseases.">Radiology</div>
+            <div class="swiper-slide cardiology treatment" data-info="Cardiology - Cardiology deals with disorders of the heart and circulatory system.">Cardiology</div>
+            <div class="swiper-slide oncology treatment" data-info="Oncology - Oncology focuses on the diagnosis and treatment of cancer.">Oncology</div>
+            <div class="swiper-slide neurology treatment" data-info="Neurology - Neurology deals with disorders of the nervous system.">Neurology</div>
+            <div class="swiper-slide orthopedics treatment" data-info="Orthopedics - Orthopedics deals with the musculoskeletal system and related conditions.">Orthopedics</div>
+            <div class="swiper-slide gynecology treatment" data-info="Gynecology - Gynecology deals with the female reproductive system and related disorders.">Gynecology</div>
+            <div class="swiper-slide pediatrics treatment" data-info="Pediatrics - Pediatrics focuses on the medical care of infants, children, and adolescents.">Pediatrics</div>
+            <div class="swiper-slide dermatology treatment" data-info="Dermatology - Dermatology deals with disorders of the skin, hair, and nails.">Dermatology</div>
+            <div class="swiper-slide internal-medicine treatment" data-info="Internal Medicine - Internal Medicine focuses on the prevention, diagnosis, and treatment of adult diseases.">Internal Medicine</div>
+        </div>
+    
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </section>
+    
+    <div id="treatment-info"></div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var treatmentSlides = document.querySelectorAll('.treatment');
+        var treatmentInfo = document.getElementById('treatment-info');
+    
+        treatmentSlides.forEach(function(slide) {
+            slide.addEventListener('click', function() {
+                var info = this.getAttribute('data-info');
+                treatmentInfo.textContent = info;
+            });
+        });
+    
+        var swiper = new Swiper('.swiper', {
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    });
+    </script>
+    
+    <section id="apointment">
+        <div class="container">
+            <div class="info">
+                <h2>Get An Appointment</h2>
+                <p>
+                    Take the first step towards wellness – Book your appointment today!
+                </p>
+                <article>
+                    <div class="info-icon">
+                        <i class="bx bx-user"></i>
+                    </div>
+                    <div>
+                        <h4>Experience Doctors</h4>
+                        <small>
+                            
+                        </small>
+                    </div>
+                </article>
+    
+                <article>
+                    <div class="info-icon">
+                        <i class="bx bx-band-aid"></i>
+                    </div>
+                    <div>
+                        <h4>Advenced Technology</h4>
+                        <small>
+                            
+                        </small>
+                    </div>
+                </article>
+    
+                <article>
+                    <div class="info-icon">
+                        <i class="bx bx-first-aid"></i>
+                    </div>
+                    <div>
+                        <h4>Emergency Care</h4>
+                        <small>
+                           
+                        </small>
+                    </div>
+                </article>
+            </div>
+            <form action="https://kxnwcaw7wqx.typeform.com/to/x4394IA8"method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" placeholder="Enter Your Name" name="Patient's Name" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="number" placeholder="Enter Your Number" name="Phone Number" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" placeholder="Choose a  Date" name="date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="department">Select Department</label>
+                    <select name="Department" id="department" required>
+                        <option value="Department One">Neurology</option>
+                        <option value="Department Two">Orthopedics</option>
+                        <option value="Department Three">Cardiology</option>
+                        <option value="Department Four">Oncology</option>
+                        <option value="Department One">Surgery</option>
+                        <option value="Department Two">Dermatology</option>
+                        <option value="Department Three">Pediatrics</option>
+                        <option value="Department Four">Urology</option>
+                        <option value="Department Three"> Psychiatry</option>
+                        <option value="Department Four">Radiology</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="doctor">Select Doctor</label>
+                    <select name="Doctor" id="doctor" required>
+                        <option value="Doctor One">Dr. Emily Johnson</option>
+                        <option value="Doctor Two">Prof. Michael Lee</option>
+                        <option value="Doctor Three">Dr. Sophia Rodriguez</option>
+                        <option value="Doctor Four">Prof. David Chen</option>
+                        <option value="Doctor One">Dr. Sarah Williams </option>
+                        <option value="Doctor Two">Prof. James Smith</option>
+                        <option value="Doctor Three">Dr. Emma Taylor</option>
+                        <option value="Doctor Four">Prof. Anna Garcia</option>
+                        <option value="Doctor Three">Dr. Daniel Brown</option>
+                        <option value="Doctor Four">Prof. Olivia Martinez</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Add Message</label>
+                    <textarea name="Added Message" id="message" rows="6" placeholder="Add a message" required></textarea>
+                </div>
+                <input type="button" value="Submit Request" class="btn-primary" id="submitButton">
+                
+<button id="successMessage" style="display: none;">Submitted Successfully</button>
+<script>document.addEventListener("DOMContentLoaded", function() {
+    
+  var submitButton = document.getElementById("submitButton");
+
+  
+  var successMessage = document.getElementById("successMessage");
+
+  submitButton.addEventListener("click", function(event) {
+      event.preventDefault(); 
+
+
+      successMessage.style.display = "block";
+
+  });
+}); 
+document.addEventListener("DOMContentLoaded", function() {
+    var form = document.getElementById("myForm");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault(); 
+
+        
+        window.open("form_submitted.html", "_self");
+    });
+});
+</script>
+
+<form id="myForm" action="" method="post">
+  <script>document.addEventListener("DOMContentLoaded", function() {
+    
+    var submitButton = document.getElementById("submitButton");
+  
+    
+    var successMessage = document.getElementById("successMessage");
+  
+    submitButton.addEventListener("click", function(event) {
+        event.preventDefault(); 
+  
+  
+        successMessage.style.display = "block";
+  
+    });
+  }); 
+  document.addEventListener("DOMContentLoaded", function() {
+      var form = document.getElementById("myForm");
+  
+      form.addEventListener("submit", function(event) {
+          event.preventDefault(); 
+  
+          
+          window.open("form_submitted.html", "_self");
+      });
+  });
+  </script>
+
+  
+  <input type="submit" value="Cancel Appointment" class="btn-primary" id="cancelButton">
+
+    
+</form>
+            
+        </div>
+      </section>
+ 
+
+   <!--===================end of appointment=========================-->
+
+   <footer>
+    <div class="container">
+        <article>
+            <a href="#" class="footer-logo">
+            <p>
+                Contact us!
+            </p>
+            <div>
+                <i class="bx bxs-phone"></i>
+                <small>+905555555555</small>
+            </div>
+            <div>
+                <i class="bx bx-mail-send"></i>
+                <small>support@healthcarehospital.com</small>
+            </div>
+        </article>
+        <article>
+            <h3>Support</h3>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">Purchasing Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Career</a>
+        </article>
+        <article>
+            <h3>Menu</h3>
+            <a href="#">Home</a>
+            <a href="#services">Services</a>
+            <a href="#treatments">Appointments</a>
+            
+        </article>
+        <article>
+            <h3>Contact Us</h3>
+            <p>Press</p>
+            <p>FAQs</p>
+            <div class="footer-socials">
+                <a href="#"><i class="bx bxl-linkedin"></i></a>
+                <a href="#"><i class="bx bxl-twitter"></i></a>
+                <a href="#"><i class="bx bxl-facebook"></i></a>
+                <a href="#"><i class="bx bxl-instagram"></i></a>
+            </div>
+        </article>
+    </div>
+    <div class="copyright">
+        <small>&copy; All rights reserved</small>
+    </div>
+   </footer>
+
+<!-- Swiper Js -->
+<!-- Swiper Js -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    const navItems = document.querySelector("#nav-items");
+    const openNavBtn = document.querySelector("#open-nav-btn");
+    const closeNavBtn = document.querySelector("#close-nav-btn");
+
+    openNavBtn.addEventListener("click", () => {
+        navItems.style.display = "flex";
+        openNavBtn.style.display = "none";
+        closeNavBtn.style.display = "inline-block";
+    });
+
+    const closeNav = () => {
+        navItems.style.display = "none";
+        closeNavBtn.style.display = "none";
+        openNavBtn.style.display = "inline-block";
+    };
+
+    closeNavBtn.addEventListener("click", closeNav);
+
+    // close nav menu when a menu item clicked
+    if (window.innerWidth < 1024) {
+        document.querySelectorAll("#nav-items li a").forEach(navItem => {
+            navItem.addEventListener("click", () => {
+                closeNav();
+            });
+        });
+    }
+
+    // change navbar style on scroll
+    window.addEventListener("scroll", () => {
+        document.querySelector("nav").classList.toggle("window-scroll", window.scrollY > 0);
+    });
+
+    // testemonials
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        // responsive breakpoints
+        breakpoints: {
+            // tablet
+            600: {
+                slidesPerView: 2,
+            },
+            // desktop
+            1024: {
+                slidesPerView: 3,
+            },
+        },
+    });
+</script>
+
+</body>
+</html>
